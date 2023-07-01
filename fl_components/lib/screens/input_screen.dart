@@ -62,11 +62,6 @@ class InputScreen extends StatelessWidget {
                       ),
                       items: const [
                         DropdownMenuItem(
-                          value: '',
-                          enabled: false,
-                          child: Text('Seleccione un rol'),
-                        ),
-                        DropdownMenuItem(
                           value: 'admin',
                           child: Text('Administrador'),
                         ),
