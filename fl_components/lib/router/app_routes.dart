@@ -10,6 +10,7 @@ class AppRoutes {
   static const String listView2 = 'listview2';
   static const String alert = 'alert';
   static const String card = 'card';
+  static const String avatar = 'avatar';
 
   static const String initialRoute = AppRoutes.home;
   static const String notFound = '/not-found';
@@ -40,6 +41,11 @@ class AppRoutes {
         icon: Icons.credit_card,
         name: 'Card',
         screen: const CardScreen()),
+    MenuOption(
+        route: AppRoutes.avatar,
+        icon: Icons.account_circle,
+        name: 'Avatar',
+        screen: const AvatarScreen())
   ];
 
   static Map<String, Widget Function(BuildContext)> getAppRoutes() {
