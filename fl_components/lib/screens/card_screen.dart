@@ -18,7 +18,18 @@ class CardScreen extends StatelessWidget {
                 margin: const EdgeInsets.all(8.0),
                 child: const CustomCardType2(
                   imgUrl: 'https://picsum.photos/400/250',
+                  message: 'Aquí va una descripción',
+                )),
+            Container(
+                margin: const EdgeInsets.all(8.0),
+                child: const CustomCardType2(
+                  imgUrl: 'https://picsum.photos/400/250',
                   message: '',
+                )),
+            Container(
+                margin: const EdgeInsets.all(8.0),
+                child: const CustomCardType2(
+                  imgUrl: 'https://picsum.photos/400/250',
                 ))
           ],
         ));
