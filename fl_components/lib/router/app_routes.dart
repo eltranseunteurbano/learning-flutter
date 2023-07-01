@@ -11,16 +11,17 @@ class AppRoutes {
   static const String alert = 'alert';
   static const String card = 'card';
   static const String avatar = 'avatar';
+  static const String animated = 'animated';
 
   static const String initialRoute = AppRoutes.home;
   static const String notFound = '/not-found';
 
   static final menuOptions = <MenuOption>[
-    MenuOption(
-        route: AppRoutes.home,
-        icon: Icons.home,
-        name: 'Home Screen',
-        screen: const HomeScreen()),
+    // MenuOption(
+    //     route: AppRoutes.home,
+    //     icon: Icons.home,
+    //     name: 'Home Screen',
+    //     screen: const HomeScreen()),
     MenuOption(
         route: AppRoutes.listView1,
         icon: Icons.list,
@@ -45,11 +46,18 @@ class AppRoutes {
         route: AppRoutes.avatar,
         icon: Icons.account_circle,
         name: 'Avatar',
-        screen: const AvatarScreen())
+        screen: const AvatarScreen()),
+    MenuOption(
+        route: AppRoutes.animated,
+        icon: Icons.animation,
+        name: 'Animated',
+        screen: const AnimatedScreen()),
   ];
 
   static Map<String, Widget Function(BuildContext)> getAppRoutes() {
     Map<String, Widget Function(BuildContext)> routes = {};
+
+    routes.addAll({'home': (BuildContext context) => const HomeScreen()});
 
     for (final option in menuOptions) {
       routes[option.route] = (context) => option.screen;
