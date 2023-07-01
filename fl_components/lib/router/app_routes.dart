@@ -13,16 +13,12 @@ class AppRoutes {
   static const String avatar = 'avatar';
   static const String animated = 'animated';
   static const String input = 'input';
+  static const String slider = 'slider';
 
   static const String initialRoute = AppRoutes.home;
   static const String notFound = '/not-found';
 
   static final menuOptions = <MenuOption>[
-    // MenuOption(
-    //     route: AppRoutes.home,
-    //     icon: Icons.home,
-    //     name: 'Home Screen',
-    //     screen: const HomeScreen()),
     MenuOption(
         route: AppRoutes.listView1,
         icon: Icons.list,
@@ -58,6 +54,11 @@ class AppRoutes {
         icon: Icons.edit_calendar_rounded,
         name: 'Input',
         screen: const InputScreen()),
+    MenuOption(
+        route: AppRoutes.slider,
+        icon: Icons.slideshow,
+        name: 'Slider',
+        screen: const SliderScreen()),
   ];
 
   static Map<String, Widget Function(BuildContext)> getAppRoutes() {
