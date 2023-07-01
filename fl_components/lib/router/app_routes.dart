@@ -12,6 +12,7 @@ class AppRoutes {
   static const String card = 'card';
   static const String avatar = 'avatar';
   static const String animated = 'animated';
+  static const String input = 'input';
 
   static const String initialRoute = AppRoutes.home;
   static const String notFound = '/not-found';
@@ -52,6 +53,11 @@ class AppRoutes {
         icon: Icons.animation,
         name: 'Animated',
         screen: const AnimatedScreen()),
+    MenuOption(
+        route: AppRoutes.input,
+        icon: Icons.edit_calendar_rounded,
+        name: 'Input',
+        screen: const InputScreen()),
   ];
 
   static Map<String, Widget Function(BuildContext)> getAppRoutes() {

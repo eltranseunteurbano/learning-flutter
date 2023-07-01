@@ -14,7 +14,20 @@ class AppTheme {
           style: ElevatedButton.styleFrom(
               backgroundColor: Colors.indigo,
               shape: const StadiumBorder(),
-              elevation: 0)));
+              elevation: 0)),
+      inputDecorationTheme: const InputDecorationTheme(
+          floatingLabelStyle: TextStyle(color: primaryColor),
+          enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: primaryColor, width: 1),
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(8),
+                  topRight: Radius.circular(8))),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: primaryColor, width: 2),
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(8), topRight: Radius.circular(8)),
+          ),
+          border: OutlineInputBorder()));
 
   static final ThemeData darkTheme = ThemeData.dark().copyWith(
       primaryColor: Colors.blue,
