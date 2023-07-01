@@ -55,6 +55,29 @@ class InputScreen extends StatelessWidget {
                       obscureText: true,
                       formProperty: 'password',
                       formValues: formValues),
+                  DropdownButtonFormField(
+                      decoration: const InputDecoration(
+                        labelText: 'Rol',
+                        hintText: 'Seleccione un rol',
+                      ),
+                      items: const [
+                        DropdownMenuItem(
+                          value: '',
+                          enabled: false,
+                          child: Text('Seleccione un rol'),
+                        ),
+                        DropdownMenuItem(
+                          value: 'admin',
+                          child: Text('Administrador'),
+                        ),
+                        DropdownMenuItem(
+                          value: 'user',
+                          child: Text('Usuario'),
+                        ),
+                      ],
+                      onChanged: (value) {
+                        formValues['role'] = value.toString();
+                      }),
                   ElevatedButton(
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
