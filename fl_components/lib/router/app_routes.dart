@@ -14,6 +14,7 @@ class AppRoutes {
   static const String animated = 'animated';
   static const String input = 'input';
   static const String slider = 'slider';
+  static const String listViewBuilder = 'listview-builder';
 
   static const String initialRoute = AppRoutes.home;
   static const String notFound = '/not-found';
@@ -59,6 +60,11 @@ class AppRoutes {
         icon: Icons.slideshow,
         name: 'Slider',
         screen: const SliderScreen()),
+    MenuOption(
+        route: AppRoutes.listViewBuilder,
+        icon: Icons.list,
+        name: 'List View Builder',
+        screen: const ListViewBuilderScreen()),
   ];
 
   static Map<String, Widget Function(BuildContext)> getAppRoutes() {
