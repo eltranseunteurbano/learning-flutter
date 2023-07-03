@@ -1,0 +1,1 @@
+export 'package:movies/widgets/card/regular_card.dart';

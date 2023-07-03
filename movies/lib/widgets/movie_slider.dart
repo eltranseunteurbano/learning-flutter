@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movies/router/app_routes.dart';
+import 'package:movies/widgets/card/card.dart';
 
 class MovieSlider extends StatelessWidget {
   const MovieSlider({super.key});
@@ -18,46 +19,20 @@ class MovieSlider extends StatelessWidget {
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: 20,
-            itemBuilder: (_, int index) => _MoviePoster(),
+            itemBuilder: (_, int index) => RegularCard(
+                onTap: () => Navigator.pushNamed(
+                    context, AppRoutes.detailsRoute,
+                    arguments: 'movie-instance'),
+                imageUrl: 'https://via.placeholder.com/300x400',
+                imageWidth: 130,
+                imageHeight: 190,
+                width: 130,
+                height: 190,
+                title:
+                    'Starwars: El retorno del Jedi silvestre de Monte Cristo'),
           ),
         )
       ]),
-    );
-  }
-}
-
-class _MoviePoster extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => Navigator.pushNamed(context, AppRoutes.detailsRoute,
-          arguments: 'movie-instance'),
-      child: Container(
-          width: 130,
-          height: 190,
-          margin: const EdgeInsets.all(12),
-          child: Column(
-            children: [
-              Flexible(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: const FadeInImage(
-                      placeholder: AssetImage('assets/images/no-image.jpg'),
-                      image:
-                          NetworkImage('https://via.placeholder.com/300x400'),
-                      width: 130,
-                      height: 190,
-                      fit: BoxFit.cover),
-                ),
-              ),
-              const SizedBox(height: 4),
-              const Text(
-                  'Starwars: El retorno del Jedi silvestre de Monte Cristo',
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  textAlign: TextAlign.center),
-            ],
-          )),
     );
   }
 }
