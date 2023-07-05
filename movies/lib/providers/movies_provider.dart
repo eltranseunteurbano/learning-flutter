@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:movies/models/models.dart';
+import 'package:movies/models/response/response.dart';
 
 class MoviesProvider extends ChangeNotifier {
   final String _apiKey = 'd13e577b620fcdaab144004b2aa29a81';
@@ -12,23 +13,46 @@ class MoviesProvider extends ChangeNotifier {
       'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMTNlNTc3YjYyMGZjZGFhYjE0NDAwNGIyYWEyOWE4MSIsInN1YiI6IjY0YTMzOTZmOGUyMGM1MDEyZThhMGEzOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.uagQauQn8tp3YZuA-A98vPxrMS5SbVoD9IoGTL8tDMw';
 
   List<Movie> onDisplayMovies = [];
+  List<Movie> popularMovies = [];
+
+  int _popularPage = 0;
+
   MoviesProvider() {
     getOnDisplayMovies();
+    getPopularMovies();
   }
 
-  getOnDisplayMovies() async {
-    var url = Uri.https(_baseUrl, '3/movie/now_playing',
-        {'language': _language, 'api_key': _apiKey});
+  Future<String> _getJsonData(String endpoint,
+      [Map<String, dynamic> options = const {}]) async {
+    var url = Uri.https(_baseUrl, endpoint,
+        {'language': _language, 'api_key': _apiKey, ...options});
 
     final response = await http.get(url, headers: {
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer $_autorization'
+      'Authorization': 'Bearer $_autorization',
     });
+    return response.body;
+  }
+
+  getOnDisplayMovies() async {
+    final jsonData = await _getJsonData('3/movie/now_playing');
 
     final nowPlayingResponse = NowPlayingResponse.fromJson(
-        json.decode(response.body) as Map<String, dynamic>);
+        json.decode(jsonData) as Map<String, dynamic>);
 
     onDisplayMovies = nowPlayingResponse.results;
+    notifyListeners();
+  }
+
+  getPopularMovies() async {
+    _popularPage++;
+    final jsonData =
+        await _getJsonData('3/movie/popular', {'page': '$_popularPage'});
+
+    final popularResponse =
+        PopularResponse.fromJson(json.decode(jsonData) as Map<String, dynamic>);
+
+    popularMovies = [...popularMovies, ...popularResponse.results];
     notifyListeners();
   }
 }

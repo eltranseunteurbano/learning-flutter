@@ -15,7 +15,6 @@ class AppState extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (_) => MoviesProvider(),
-          lazy: false,
         )
       ],
       child: const MyApp(),
