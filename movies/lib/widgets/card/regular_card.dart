@@ -9,6 +9,7 @@ class RegularCard extends StatelessWidget {
   final double imageHeight;
 
   final String title;
+  final int maxLines;
   final void Function()? onTap;
 
   const RegularCard({
@@ -20,6 +21,7 @@ class RegularCard extends StatelessWidget {
     required this.imageWidth,
     required this.imageHeight,
     this.onTap,
+    this.maxLines = 2,
   });
 
   @override
@@ -46,7 +48,7 @@ class RegularCard extends StatelessWidget {
               ),
               const SizedBox(height: 4),
               Text(title,
-                  maxLines: 2,
+                  maxLines: maxLines,
                   overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.center),
             ],
