@@ -4,7 +4,7 @@ import 'package:movies/widgets/search/search.dart';
 
 class BuildSuggestions extends StatelessWidget {
   final String query;
-  final Function search;
+  final Stream<List<Movie>> search;
 
   const BuildSuggestions(
       {super.key, required this.query, required this.search});
@@ -18,8 +18,8 @@ class BuildSuggestions extends StatelessWidget {
       );
     }
 
-    return FutureBuilder(
-        future: search(query),
+    return StreamBuilder(
+        stream: search,
         builder: (_, AsyncSnapshot<List<Movie>> snapshot) {
           if (!snapshot.hasData) {
             return const Center(child: CircularProgressIndicator());

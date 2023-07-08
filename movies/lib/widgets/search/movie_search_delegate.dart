@@ -29,6 +29,8 @@ class MovieSearchDelegatePage extends SearchDelegate {
   @override
   Widget buildSuggestions(BuildContext context) {
     final moviesProvider = Provider.of<MoviesProvider>(context, listen: false);
-    return BuildSuggestions(query: query, search: moviesProvider.searchMovies);
+    moviesProvider.getSuggestionsByQuery(query);
+    return BuildSuggestions(
+        query: query, search: moviesProvider.suggestionStream);
   }
 }
