@@ -26,7 +26,7 @@ class MoviesProvider extends ChangeNotifier {
 
   Future<String> _getJsonData(String endpoint,
       [Map<String, dynamic> options = const {}]) async {
-    var url = Uri.https(_baseUrl, endpoint,
+    final url = Uri.https(_baseUrl, endpoint,
         {'language': _language, 'api_key': _apiKey, ...options});
 
     final response = await http.get(url, headers: {
@@ -69,5 +69,14 @@ class MoviesProvider extends ChangeNotifier {
     moviesCast[movieId] = creditsResponse.cast;
 
     return creditsResponse.cast;
+  }
+
+  Future<List<Movie>> searchMovies(String query) async {
+    final jsonData = await _getJsonData('3/search/movie', {'query': query});
+
+    final searchResponse =
+        SearchMovieResponse.fromJson(json.decode(jsonData) as Map<String, dynamic>);
+
+    return searchResponse.results;
   }
 }
