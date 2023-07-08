@@ -54,16 +54,20 @@ class _MovieSliderState extends State<MovieSlider> {
               itemCount: widget.movies.length,
               itemBuilder: (_, int index) {
                 final movie = widget.movies[index];
-                return RegularCard(
-                    onTap: () => Navigator.pushNamed(
-                        context, AppRoutes.detailsRoute,
-                        arguments: movie),
-                    imageUrl: movie.fullPosterImg,
-                    imageWidth: 130,
-                    imageHeight: 190,
-                    width: 130,
-                    height: 190,
-                    title: movie.title);
+                movie.heroId = '${widget.title}-$index-${movie.id}';
+                return Hero(
+                  tag: movie.heroId!,
+                  child: RegularCard(
+                      onTap: () => Navigator.pushNamed(
+                          context, AppRoutes.detailsRoute,
+                          arguments: movie),
+                      imageUrl: movie.fullPosterImg,
+                      imageWidth: 130,
+                      imageHeight: 190,
+                      width: 130,
+                      height: 190,
+                      title: movie.title),
+                );
               }),
         )
       ]),

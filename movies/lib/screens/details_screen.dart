@@ -16,11 +16,14 @@ class DetailsScreen extends StatelessWidget {
               title: movie.title, backdropPath: movie.fullBackdropPath),
           SliverList(
               delegate: SliverChildListDelegate([
-            PosterAndTitle(
-                title: movie.title,
-                originalTitle: movie.originalTitle,
-                posterPath: movie.fullPosterImg,
-                voteAverage: movie.voteAverage.toString()),
+            Hero(
+              tag: movie.heroId!,
+              child: PosterAndTitle(
+                  title: movie.title,
+                  originalTitle: movie.originalTitle,
+                  posterPath: movie.fullPosterImg,
+                  voteAverage: movie.voteAverage.toString()),
+            ),
             Overview(overview: movie.overview),
             CastingSwiper(movieId: movie.id)
           ]))

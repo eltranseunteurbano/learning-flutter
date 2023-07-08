@@ -8,16 +8,21 @@ class SuggestionMovieItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: FadeInImage(
-        placeholder: const AssetImage('assets/images/no-image.jpg'),
-        image: NetworkImage(movie.fullPosterImg),
-        width: 50,
-        fit: BoxFit.contain,
-      ),
-      title: Text(movie.title),
-      subtitle: Text(movie.originalTitle),
-      onTap: () => Navigator.pushNamed(context, AppRoutes.detailsRoute, arguments: movie)
+    movie.heroId = 'search-${movie.id}';
+
+    return Hero(
+      tag: movie.heroId!,
+      child: ListTile(
+          leading: FadeInImage(
+            placeholder: const AssetImage('assets/images/no-image.jpg'),
+            image: NetworkImage(movie.fullPosterImg),
+            width: 50,
+            fit: BoxFit.contain,
+          ),
+          title: Text(movie.title),
+          subtitle: Text(movie.originalTitle),
+          onTap: () => Navigator.pushNamed(context, AppRoutes.detailsRoute,
+              arguments: movie)),
     );
   }
 }
