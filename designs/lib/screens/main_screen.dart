@@ -27,14 +27,14 @@ class _MainScreenState extends State<MainScreen> {
               icon: const Icon(Icons.battery_0_bar),
               label: 'Easy',
               backgroundColor: Colors.primaries[2]),
-          BottomNavigationBarItem(
-              icon: const Icon(Icons.battery_4_bar),
+          const BottomNavigationBarItem(
+              icon: Icon(Icons.battery_4_bar),
               label: 'Medium',
-              backgroundColor: Colors.primaries[1]),
+              backgroundColor: Color(0xff30BAD6)),
           BottomNavigationBarItem(
               icon: const Icon(Icons.battery_6_bar),
               label: 'Hard',
-              backgroundColor: Colors.primaries[5])
+              backgroundColor: Colors.primaries[1])
         ],
         onTap: (value) => {
           setState(() {
