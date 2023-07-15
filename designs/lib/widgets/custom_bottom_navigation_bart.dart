@@ -11,29 +11,29 @@ class CustomBottomNavigationBar extends StatefulWidget {
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   int _selectedIndex = 0;
 
-  final options = [
-    'easy',
-    'medium',
-    'hard',
-  ];
-
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      items: const [
+      elevation: 0,
+      type: BottomNavigationBarType.shifting,
+      items: [
         BottomNavigationBarItem(
-          icon: Icon(Icons.battery_0_bar),
-          label: 'Easy',
-        ),
+            icon: const Icon(Icons.battery_0_bar),
+            label: 'Easy',
+            backgroundColor: Colors.primaries[2]),
         BottomNavigationBarItem(
-            icon: Icon(Icons.battery_4_bar), label: 'Medium'),
-        BottomNavigationBarItem(icon: Icon(Icons.battery_6_bar), label: 'Hard')
+            icon: const Icon(Icons.battery_4_bar),
+            label: 'Medium',
+            backgroundColor: Colors.primaries[1]),
+        BottomNavigationBarItem(
+            icon: const Icon(Icons.battery_6_bar),
+            label: 'Hard',
+            backgroundColor: Colors.primaries[5])
       ],
       onTap: (value) => {
         setState(() {
           _selectedIndex = value;
         }),
-        Navigator.pushNamed(context, '/${options[value]}'),
       },
       currentIndex: _selectedIndex,
     );

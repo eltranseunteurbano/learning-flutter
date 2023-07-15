@@ -1,3 +1,4 @@
+import 'package:designs/widgets/easy/action_button.dart';
 import 'package:flutter/material.dart';
 
 class CustomActions extends StatelessWidget {
@@ -5,24 +6,12 @@ class CustomActions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return const Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        TextButton.icon(
-          onPressed: () {},
-          icon: const Icon(Icons.call),
-          label: const Text('Call'),
-        ),
-        TextButton.icon(
-          onPressed: () {},
-          icon: const Icon(Icons.near_me),
-          label: const Text('Route'),
-        ),
-        TextButton.icon(
-          onPressed: () {},
-          icon: const Icon(Icons.share),
-          label: const Text('Share'),
-        )
+        ActionButton(icon: Icons.call, label: 'Call'),
+        ActionButton(icon: Icons.near_me, label: 'Route'),
+        ActionButton(icon: Icons.share, label: 'Share'),
       ],
     );
   }

@@ -22,9 +22,9 @@ class EasyScreen extends StatelessWidget {
               child: const Column(
                 children: [
                   LocationWithStars(),
-                  SizedBox(height: 24),
+                  SizedBox(height: 16),
                   CustomActions(),
-                  SizedBox(height: 24),
+                  SizedBox(height: 16),
                   Text(
                       'Adipisicing adipisicing occaecat qui fugiat aliqua enim aute sunt eu et. Enim consectetur non ad velit enim ad consectetur laboris sunt deserunt. Deserunt mollit tempor cillum voluptate cupidatat consectetur laborum excepteur. Ex commodo ullamco non ad aliquip. Minim adipisicing proident aliqua sit ipsum aliquip velit laboris adipisicing mollit irure ut.',
                       softWrap: true)
