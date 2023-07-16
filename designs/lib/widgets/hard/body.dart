@@ -8,6 +8,7 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SingleChildScrollView(
+      physics: BouncingScrollPhysics(),
       child: SafeArea(
         bottom: true,
         child: Padding(
