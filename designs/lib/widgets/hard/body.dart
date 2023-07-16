@@ -1,3 +1,4 @@
+import 'package:designs/widgets/hard/card_table.dart';
 import 'package:designs/widgets/hard/page_title.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,7 @@ class Body extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.all(24),
           child: Column(
-            children: [PageTitle()],
+            children: [PageTitle(), CardTable()],
           ),
         ),
       ),
