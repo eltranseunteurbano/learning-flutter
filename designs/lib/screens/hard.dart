@@ -1,3 +1,5 @@
+import 'package:designs/widgets/hard/background.dart';
+import 'package:designs/widgets/hard/body.dart';
 import 'package:flutter/material.dart';
 
 class HardScreen extends StatelessWidget {
@@ -5,6 +7,6 @@ class HardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const Scaffold(body: Stack(children: [Background(), Body()]));
   }
 }

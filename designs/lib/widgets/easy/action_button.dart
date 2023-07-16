@@ -7,12 +7,7 @@ class ActionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return TextButton.icon(
-    //   onPressed: () {},
-    //   icon: Icon(icon),
-    //   label: Text(label),
-    // );
-    return InkWell(
+    return GestureDetector(
       onTap: () {},
       child: Padding(
         padding: const EdgeInsets.all(8.0),
