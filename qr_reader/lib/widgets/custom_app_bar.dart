@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:qr_reader/providers/providers.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({super.key});
@@ -11,7 +13,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         IconButton(
           icon: const Icon(Icons.delete_forever),
-          onPressed: () {},
+          onPressed: () {
+            final scanListProvider =
+                Provider.of<ScanListProvider>(context, listen: false);
+            scanListProvider.deleteAllScans();
+          },
         )
       ],
     );

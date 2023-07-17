@@ -11,7 +11,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (create) => UiProvider())],
+      providers: [
+        ChangeNotifierProvider(create: (create) => UiProvider()),
+        ChangeNotifierProvider(create: (create) => ScanListProvider())
+      ],
       child: MaterialApp(
         title: 'QR Reader',
         initialRoute: 'home',

@@ -29,11 +29,16 @@ class _HomePageBody extends StatelessWidget {
     final uiProvider = Provider.of<UiProvider>(context);
     int currentIndex = uiProvider.selectedBottomOption;
 
+    final scanListProvider =
+        Provider.of<ScanListProvider>(context, listen: false);
+
     switch (currentIndex) {
       case 0:
-        return const MapPage();
+        scanListProvider.loadScansByType('geo');
+        return const MapView();
       case 1:
-        return const DirectionsPage();
+        scanListProvider.loadScansByType('http');
+        return const DirectionsView();
       default:
         return const HistoryPage();
     }
