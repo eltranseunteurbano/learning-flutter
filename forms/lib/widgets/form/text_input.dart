@@ -8,6 +8,8 @@ class TextInput extends StatelessWidget {
   final TextInputType keyboardType;
   final IconData? prefixIcon;
   final bool obscureText;
+  final String? Function(String?)? validator;
+  final void Function(String)? onChanged;
 
   const TextInput(
       {super.key,
@@ -17,7 +19,9 @@ class TextInput extends StatelessWidget {
       this.autocorrect = false,
       this.keyboardType = TextInputType.text,
       this.prefixIcon,
-      this.obscureText = false});
+      this.obscureText = false,
+      this.validator,
+      this.onChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +29,8 @@ class TextInput extends StatelessWidget {
         autocorrect: autocorrect,
         keyboardType: keyboardType,
         obscureText: obscureText,
+        validator: validator,
+        onChanged: onChanged,
         decoration: InputDecoration(
             focusedBorder: const OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.deepPurple, width: 2)),

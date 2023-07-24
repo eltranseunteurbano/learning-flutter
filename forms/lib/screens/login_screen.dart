@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:forms/providers/login_form_provider.dart';
 import 'package:forms/widgets/widgets.dart';
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -26,7 +28,9 @@ class LoginScreen extends StatelessWidget {
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
                 const SizedBox(height: 40),
-                const LoginForm(),
+                ChangeNotifierProvider(
+                    create: (_) => LoginFormProvider(),
+                    child: const LoginForm())
               ],
             ),
           ),
